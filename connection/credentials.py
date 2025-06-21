@@ -1,2 +1,2 @@
-real_username = "fleetingviews"
-real_password = "123123123"
+real_username = "admin"
+real_password = "123"

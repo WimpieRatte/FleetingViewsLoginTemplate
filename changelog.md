@@ -1,0 +1,11 @@
+### 2025-06-21:
+- Added changelog.md
+- Updated README.md
+- Updated color scheme. (removed colors.py)
+- Added onsubmit to password field.
+- Renamed some controls to avoid confusion.
+- Rearranged controls and added regions for better overview.
+- Changed default password.
+- Updated comments
+- Changed font to Arial
+- Added logout and appropriate snackbar alert

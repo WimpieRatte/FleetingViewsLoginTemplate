@@ -3,34 +3,44 @@ This is a template that I want to use for my Flet projects that need a login scr
 It was built while watching a video for the https://github.com/ArellanoBrunoc/FleetingExample repo.
 (So, essentially, kudos to Arellano Brunoc for this!)
 
+# How to run
+- Have Python installed
+- Have UV installed (in Windows, simply run `winget install --id=astral-sh.uv  -e` in your CMD, then restart your command prompts and IDE's.)
+- Activate the virtual environment (Via Terminal, run `.\.venv\Scripts\activate`)
+- Run the app (Via Terminal, run `uv run main.py`)
+(Of course, this app can be published to Windows/Linux/whatever, because it's coded in Flet, but since this is just a template/skeleton for a new app, I'm assuming no one would need instructions for that.)
+
 # Status
 ### Done
 - Basic example built
+- Changed color schemes (2025-06-21)
+- Added regions for easier readability (2025-06-21)
+- Changed to better font (2025-06-21)
 ### Todo
-- Change color schemes
-- Add regions for easier readability
-- Check for more readable font
+- Use this in other projects I want to do :).
 
 # Technologies/Modules used
-- UV (Ran `uv init` command to setup the basics at first.)
+- UV
 - Flet
 - Fleeting Views
 
 # Assets
-## Fonts
-- Oblata Display: https://www.fontspace.com/oblata-display-font-f140482 (free for commercial use)
+- Font: Arial
 
 # Basic Structure
 - Create `__init__.py` file in all folders, so Python sees them as modules.
 - Create an own folder for each page/view. (I'm placing those subfolders in the Views folder.)
-- Create *_view.py as a design view file for each page/view.
-    - Import the entire home and settings views, but only the login's `login_init` method.
+    - In each folder, create a *_view.py file as additional design view file for each of your content pages/views.
+    - in main.py, import these design view files, but for your login, only importing the `login_init` method is needed.
+    - Remember, the views/pages already got created via "FleetingViews.create_views", so these are just for adding your additional page content via fv.append(...).
+    - You'll need to build all these (call their *_init(fv) methods) before doing your first fv.view_go(...).
 - Connection stuff in the "connection" folder.
     - session.py and credentials.py can be replaced/customised for whatever connection you need.
-- colors.py: Colors module to keep UI style central.
-    - Import them to main for easy reference.
+- Colors/themes
+    - I specified a theme in main.py for the main page. (color_scheme_seed=ft.Colors.INDIGO)
+    - Can also be customised for each view/page during "view_definitions" declaration (before instantiating the FleetViews manager).
 - "assets/fonts" contain custom fonts.
-    - I chose "Oblata Display", because it's fully free.
+    - I chose "Arial", because it's fully free and reads nicely.
 - Tell FleetingViews which guard belong to every view (also addable during runtime)
 - Have a snackbar (we're calling it "alert") to show the app's feedback to user.
 - When declaring custom controls/containers in the views, use FleetingViews' append method to add to UI
